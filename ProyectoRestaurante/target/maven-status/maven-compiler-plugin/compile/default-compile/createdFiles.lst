@@ -1,0 +1,5 @@
+project\restaurante\repository\UserRepository.class
+project\restaurante\entity\User.class
+project\restaurante\controller\UserController.class
+project\restaurante\service\UserService.class
+project\restaurante\demo\DemoApplication.class
