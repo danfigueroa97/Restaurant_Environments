@@ -1,13 +1,17 @@
 package com.example.Restaurante.Model;
 
 import jakarta.persistence.*;
+<<<<<<< Updated upstream
 import lombok.AllArgsConstructor;
+=======
+>>>>>>> Stashed changes
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+<<<<<<< Updated upstream
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -29,4 +33,26 @@ public class Pedido {
     @ManyToOne
     @JoinColumn(name = "idPlato")
     private Plato idPlato;
+=======
+@NoArgsConstructor
+@Entity
+@Table(name="Pedido")
+public class Pedido {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idPedido;
+
+    @Column(name="statusPedido")
+    private Boolean statusPedido;
+
+    @ManyToOne
+    @JoinColumn(name="mesa")
+    private Mesa mesa;
+
+    @ManyToOne
+    @JoinColumn(name="plato")
+    private Plato plato;
+    
+>>>>>>> Stashed changes
 }
