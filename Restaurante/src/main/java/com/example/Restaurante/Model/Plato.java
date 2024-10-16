@@ -31,6 +31,6 @@ public class Plato {
     private String imagen;
 
     @ManyToOne
-    @JoinColumn(name = "categoria")
-    private Categoria categoria;
+    @JoinColumn(name = "idCategoria")
+    private Categoria idCategoria;
 }
