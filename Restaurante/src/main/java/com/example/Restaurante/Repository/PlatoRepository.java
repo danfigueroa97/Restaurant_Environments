@@ -1,4 +1,8 @@
 package com.example.Restaurante.Repository;
 
-public interface PlatoRepository {
+import com.example.Restaurante.Model.Plato;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PlatoRepository extends JpaRepository<Plato, Long> {
+
 }
