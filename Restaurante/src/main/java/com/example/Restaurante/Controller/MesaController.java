@@ -29,14 +29,14 @@ public class MesaController {
     }
 
     // Agregar una Mesa
-    @PostMapping("/")
+    @PostMapping("/create")
     public ResponseEntity<Mesa> agregar(@RequestBody Mesa mesa){
         Mesa obj= mesaService.nuevaMesa(mesa);
         return new ResponseEntity<>(obj, HttpStatus.OK);
     }
 
     //Actualizar la Mesa
-    @PutMapping("/")
+    @PutMapping("/update")
     public ResponseEntity<Mesa> editar (@RequestBody Mesa mesa){
         Mesa obj=mesaService.buscarMesa(mesa.getIdMesa());
         if(obj != null){
@@ -49,7 +49,7 @@ public class MesaController {
     }
 
     //Eliminar la Mesa
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Mesa> eliminar (@PathVariable Long idMesa){
         Mesa obj= mesaService.buscarMesa(idMesa);
         if(obj != null){

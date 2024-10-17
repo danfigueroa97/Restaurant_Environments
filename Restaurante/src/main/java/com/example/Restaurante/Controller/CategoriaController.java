@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/Categoria")
+@RequestMapping("/api/categorias")
 public class CategoriaController {
 
     @Autowired
@@ -31,14 +31,14 @@ public class CategoriaController {
     }
 
     // Agregar
-    @PostMapping("/crear")
+    @PostMapping("/create")
     public ResponseEntity<Categoria> agregarCategoria(@RequestBody Categoria categoria){
         Categoria obj= categoriaService.crearCategoria(categoria);
         return new ResponseEntity<>(obj, HttpStatus.OK);
     }
 
     //Actualizar 
-    @PutMapping("/actualizar")
+    @PutMapping("/update")
     public ResponseEntity<Categoria> actualizarCategoria(@RequestBody Categoria categoria){
         Categoria obj=categoriaService.buscarCategoria(categoria.getIdCategoria());
         if(obj != null){
@@ -52,7 +52,7 @@ public class CategoriaController {
     }
 
     //Eliminar
-    @DeleteMapping("/eliminar/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Categoria> eliminarCategoria(@PathVariable Long id){
         Categoria obj= categoriaService.buscarCategoria(id);
         if(obj != null){
