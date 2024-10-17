@@ -16,8 +16,8 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "idPedido")
-    private Long idPedido;
+    @Column(name = "idUsuario")
+    private Long idUsuario;
 
     @Column(name = "nombre")
     private String nombre;
