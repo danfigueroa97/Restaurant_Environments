@@ -37,8 +37,8 @@ public class CategoriaController {
         return new ResponseEntity<>(obj, HttpStatus.OK);
     }
 
-    //Actualizar la Mesa
-    @PutMapping("/")
+    //Actualizar 
+    @PutMapping("/actualizar")
     public ResponseEntity<Categoria> actualizarCategoria(@RequestBody Categoria categoria){
         Categoria obj=categoriaService.buscarCategoria(categoria.getIdCategoria());
         if(obj != null){
