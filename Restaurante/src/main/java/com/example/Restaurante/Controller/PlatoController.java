@@ -48,6 +48,7 @@ public class PlatoController {
             obj.setPrecio(plato.getPrecio());
             obj.setImagen(plato.getImagen());
             obj.setIdCategoria(plato.getIdCategoria());
+            platoService.crearPlato(obj);
         } else {
             return new ResponseEntity<>(obj, HttpStatus.INTERNAL_SERVER_ERROR);
         }
