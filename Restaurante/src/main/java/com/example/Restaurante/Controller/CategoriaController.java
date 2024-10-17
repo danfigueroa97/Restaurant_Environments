@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/categorias")
+@RequestMapping("/api/categoria")
 public class CategoriaController {
 
     @Autowired
@@ -37,8 +37,8 @@ public class CategoriaController {
         return new ResponseEntity<>(obj, HttpStatus.OK);
     }
 
-    //Actualizar 
-    @PutMapping("/update")
+    //Actualizar
+    @PutMapping("/actualizar")
     public ResponseEntity<Categoria> actualizarCategoria(@RequestBody Categoria categoria){
         Categoria obj=categoriaService.buscarCategoria(categoria.getIdCategoria());
         if(obj != null){
