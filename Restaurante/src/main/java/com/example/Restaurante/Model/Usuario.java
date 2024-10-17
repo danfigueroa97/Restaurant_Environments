@@ -14,6 +14,7 @@ import jakarta.persistence.*;
 @Table(name = "Usuario")
 public class Usuario {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "idUsuario")
