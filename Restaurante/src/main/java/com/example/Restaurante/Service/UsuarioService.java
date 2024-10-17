@@ -3,9 +3,12 @@ package com.example.Restaurante.Service;
 import com.example.Restaurante.Model.Usuario;
 import com.example.Restaurante.Repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import java.util.List;
+import jakarta.transaction.Transactional;
+import org.springframework.stereotype.Service;
 
+@Service
+@Transactional
 public class UsuarioService implements IUsuarioService{
 
     @Autowired
