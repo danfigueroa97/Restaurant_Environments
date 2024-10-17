@@ -31,7 +31,7 @@ public class CategoriaController {
     }
 
     // Agregar
-    @PostMapping("/crear")
+    @PostMapping("/create")
     public ResponseEntity<Categoria> agregarCategoria(@RequestBody Categoria categoria){
         Categoria obj= categoriaService.crearCategoria(categoria);
         return new ResponseEntity<>(obj, HttpStatus.OK);
@@ -52,7 +52,7 @@ public class CategoriaController {
     }
 
     //Eliminar
-    @DeleteMapping("/eliminar/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Categoria> eliminarCategoria(@PathVariable Long id){
         Categoria obj= categoriaService.buscarCategoria(id);
         if(obj != null){

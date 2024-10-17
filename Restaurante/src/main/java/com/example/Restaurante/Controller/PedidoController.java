@@ -29,14 +29,14 @@ public class PedidoController {
     }
 
     // Agregar un Pedido
-    @PostMapping("/")
+    @PostMapping("/create")
     public ResponseEntity<Pedido> agregar(@RequestBody Pedido pedido){
         Pedido obj= pedidoService.nuevoPedido(pedido);
         return new ResponseEntity<>(obj, HttpStatus.OK);
     }
 
     //Actualizar el Pedido
-    @PutMapping("/")
+    @PutMapping("/update")
     public ResponseEntity<Pedido> editar (@RequestBody Pedido pedido){
         Pedido obj=pedidoService.buscarPedido(pedido.getIdPedido());
         if(obj != null){
@@ -51,7 +51,7 @@ public class PedidoController {
     }
 
     //Eliminar el Pedido
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Pedido> eliminar (@PathVariable Long idPedido){
         Pedido obj= pedidoService.buscarPedido(idPedido);
         if(obj != null){

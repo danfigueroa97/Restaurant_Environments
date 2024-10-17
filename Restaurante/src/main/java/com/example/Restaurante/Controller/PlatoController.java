@@ -11,34 +11,34 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/plato")
+@RequestMapping("/api/platos")
 public class PlatoController {
 
     @Autowired
     PlatoService platoService;
 
     //Listar
-    @GetMapping("/listar")
+    @GetMapping("/list")
     public List<Plato> cargarPlato(){
         return platoService.listarPlato();
     }
 
     //Buscar
-    @GetMapping("/listar/{id}")
+    @GetMapping("/list/{id}")
     public ResponseEntity<Plato> listarPlato(@PathVariable Long id) {
         Plato plato = platoService.buscarPlato(id);
         return ResponseEntity.ok(plato);
     }
 
     //Crear
-    @PostMapping("/crear")
+    @PostMapping("/create")
     public ResponseEntity<Plato> agregar(@RequestBody Plato plato){
         Plato obj = platoService.crearPlato(plato);
         return new ResponseEntity<>(obj, HttpStatus.OK);
     }
 
     //Actualizar
-    @PutMapping("/actualizar")
+    @PutMapping("/update")
     public ResponseEntity<Plato> actualizar(@RequestBody Plato plato){
         Plato obj = platoService.buscarPlato(plato.getIdPlato());
         if (obj != null) {
@@ -56,7 +56,7 @@ public class PlatoController {
     }
 
     //Eliminar
-    @DeleteMapping("/eliminar/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Plato> eliminar(@PathVariable Long id){
         Plato obj = platoService.buscarPlato(id);
         if (obj != null) {
