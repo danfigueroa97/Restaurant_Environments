@@ -1,5 +1,6 @@
 package com.example.Restaurante.Model;
 
+import com.example.Restaurante.enums.Rol;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,7 +15,6 @@ import jakarta.persistence.*;
 @Table(name = "Usuario")
 public class Usuario {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "idUsuario")
@@ -23,9 +23,10 @@ public class Usuario {
     @Column(name = "nombre")
     private String nombre;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "rol")
-    private String rol;
+    private Rol rol;
 
-    @Column(name = "contraseña")
-    private long contraseña;
+    @Column(name = "contrasena")
+    private String contrasena;
 }
