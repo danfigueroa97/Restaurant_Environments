@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/platos")
+@CrossOrigin(origins = "*")  // Permitir solicitudes desde cualquier origen
 public class PlatoController {
 
     @Autowired
