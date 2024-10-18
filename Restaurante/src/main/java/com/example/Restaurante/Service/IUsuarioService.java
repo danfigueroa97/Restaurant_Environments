@@ -1,6 +1,8 @@
 package com.example.Restaurante.Service;
 
 import com.example.Restaurante.Model.Usuario;
+import org.springframework.http.ResponseEntity;
+
 import java.util.List;
 
 public interface IUsuarioService {
@@ -16,4 +18,7 @@ public interface IUsuarioService {
 
     //Eliminar un Usuario
     int borrarUsuario(Long id);
+
+    int login(Usuario usuario);
+    ResponseEntity<?> ingresar(Usuario usuario);
 }
