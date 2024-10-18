@@ -44,7 +44,7 @@ function obtenerPlatos() {
                         <div class="menu-text">
                             <h3>${plato.nombre}</h3>
                             <p class="description">${plato.descripcion}</p>
-                            <p class="price">${plato.precio} €</p>
+                            <p class="price">${plato.precio} $</p>
                         </div>
                         <button class="update-btn" data-id="${plato.idPlato}">Actualizar</button>
                         <button class="delete-btn" data-id="${plato.idPlato}">Eliminar</button>
