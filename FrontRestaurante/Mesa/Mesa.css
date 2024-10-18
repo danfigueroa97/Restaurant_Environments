@@ -1,0 +1,38 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.mesa-section {
+    text-align: center;
+}
+
+#mesas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.mesa {
+    width: 100px; /* Ancho del recuadro */
+    height: 100px; /* Alto del recuadro */
+    margin: 10px; /* Espaciado entre recuadros */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: white; /* Color del texto */
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.disponible {
+    background-color: green; /* Color para mesa disponible */
+}
+
+.ocupada {
+    background-color: red; /* Color para mesa ocupada */
+}
