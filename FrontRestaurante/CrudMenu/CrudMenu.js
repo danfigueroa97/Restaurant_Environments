@@ -127,7 +127,7 @@ function eliminarPlato(idPlato) {
 }
 
 function cargarPlatoParaActualizar(idPlato) {
-    let request = sendRequest(`api/platos/get/${idPlato}`, 'GET');
+    let request = sendRequest(`api/platos/list/${idPlato}`, 'GET');
 
     request.onload = function () {
         if (request.status === 200) {
@@ -149,8 +149,9 @@ function cargarPlatoParaActualizar(idPlato) {
     };
 }
 
-function actualizarPlato(idPlato, nombre, descripcion, precio, imagen, idCategoria) {
+function actualizarPlato(nombre, descripcion, precio, imagen, idCategoria, idPlato) {
     let platoActualizado = {
+        idPlato: idPlato,
         nombre: nombre,
         descripcion: descripcion,
         precio: precio,
@@ -160,7 +161,7 @@ function actualizarPlato(idPlato, nombre, descripcion, precio, imagen, idCategor
         }
     };
 
-    let request = sendRequest(`api/platos/update/${idPlato}`, 'PUT', platoActualizado);
+    let request = sendRequest('api/platos/update', 'PUT', platoActualizado);
 
     request.onload = function () {
         if (request.status === 200) {
@@ -177,6 +178,24 @@ function actualizarPlato(idPlato, nombre, descripcion, precio, imagen, idCategor
     };
 }
 
+// Inicializar variables para el botón y el formulario
+const createSection = document.querySelector('.create-section');
+const toggleCreateFormBtn = document.getElementById('toggleCreateFormBtn');
+
+// Ocultar el formulario de creación inicialmente
+createSection.style.display = 'none';
+
+// Manejar el clic en el botón "Crear Nuevo Plato"
+toggleCreateFormBtn.addEventListener('click', function () {
+    if (createSection.style.display === 'none') {
+        createSection.style.display = 'block'; // Mostrar el formulario
+        toggleCreateFormBtn.textContent = 'Cancelar'; // Cambiar el texto del botón
+    } else {
+        createSection.style.display = 'none'; // Ocultar el formulario
+        toggleCreateFormBtn.textContent = 'Crear Nuevo Plato'; // Restaurar texto original
+    }
+});
+
 // Manejo del formulario para crear un nuevo plato
 document.getElementById('platoForm').addEventListener('submit', function (e) {
     e.preventDefault();
@@ -189,6 +208,8 @@ document.getElementById('platoForm').addEventListener('submit', function (e) {
     crearPlato(nombre, descripcion, precio, imagen, idCategoria);
 
     this.reset(); // Limpiar el formulario
+    createSection.style.display = 'none'; // Ocultar el formulario
+    toggleCreateFormBtn.textContent = 'Crear Nuevo Plato'; // Cambiar el texto del botón
 });
 
 // Manejo del formulario para actualizar un plato
@@ -201,8 +222,8 @@ document.getElementById('updatePlatoForm').addEventListener('submit', function (
     let imagen = document.getElementById('updateImagen').value;
     let idCategoria = document.getElementById('updateIdCategoria').value;
 
-    actualizarPlato(idPlato, nombre, descripcion, precio, imagen, idCategoria);
+    actualizarPlato(nombre, descripcion, precio, imagen, idCategoria, idPlato);
+    this.reset(); // Limpiar el formulario
 });
 
-// Inicializar la lista de platos al cargar la página
-document.addEventListener('DOMContentLoaded', obtenerPlatos);
+obtenerPlatos(); // Cargar los platos al inicio

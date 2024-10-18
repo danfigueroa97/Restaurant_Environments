@@ -7,14 +7,9 @@
     <link rel="stylesheet" href="CrudMenu.css">
 </head>
 <body>
-    <section class="menu-section">
-        <div id="menu">
-            <!-- Aquí se generarán dinámicamente las categorías y sus platos -->
-        </div>
-    </section>
 
-    <!-- Formulario para crear un nuevo plato -->
-    <section class="create-section">
+     <!-- Formulario para crear un nuevo plato -->
+     <section class="create-section">
         <h2>Crear un Nuevo Plato</h2>
         <form id="platoForm">
             <input type="text" id="nombre" placeholder="Nombre del plato" required><br>
@@ -39,6 +34,18 @@
             <button type="submit">Actualizar Plato</button>
         </form>
     </section>
+    
+    <section class="menu-section">
+        <!-- Botón para mostrar el formulario de creación -->
+        <button id="toggleCreateFormBtn">Crear Nuevo Plato</button>
+
+        <div id="menu">
+            <!-- Aquí se generarán dinámicamente las categorías y sus platos -->
+        </div>
+        
+        
+    </section>
+
 
     <!-- Script para manejar platos -->
     <script src="CrudMenu.js"></script>
