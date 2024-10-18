@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú de Restaurante</title>
+    <link rel="stylesheet" href="CrudMenu.css">
+</head>
+<body>
+    <section class="menu-section">
+        <div id="menu">
+            <!-- Aquí se generarán dinámicamente las categorías y sus platos -->
+        </div>
+    </section>
+
+    <!-- Formulario para crear un nuevo plato -->
+    <section class="create-section">
+        <h2>Crear un Nuevo Plato</h2>
+        <form id="platoForm">
+            <input type="text" id="nombre" placeholder="Nombre del plato" required><br>
+            <input type="text" id="descripcion" placeholder="Descripción" required><br>
+            <input type="number" id="precio" placeholder="Precio" required><br>
+            <input type="text" id="imagen" placeholder="URL de la imagen" required><br>
+            <input type="number" id="idCategoria" placeholder="ID de la Categoría" required><br>
+            <button type="submit">Crear Plato</button>
+        </form>
+    </section>
+
+    <!-- Formulario para actualizar un plato -->
+    <section class="update-section" id="updateSection" style="display: none;">
+        <h2>Actualizar Plato</h2>
+        <form id="updatePlatoForm">
+            <input type="hidden" id="updateIdPlato">
+            <input type="text" id="updateNombre" placeholder="Nombre del plato" required><br>
+            <input type="text" id="updateDescripcion" placeholder="Descripción" required><br>
+            <input type="number" id="updatePrecio" placeholder="Precio" required><br>
+            <input type="text" id="updateImagen" placeholder="URL de la imagen" required><br>
+            <input type="number" id="updateIdCategoria" placeholder="ID de la Categoría" required><br>
+            <button type="submit">Actualizar Plato</button>
+        </form>
+    </section>
+
+    <!-- Script para manejar platos -->
+    <script src="CrudMenu.js"></script>
+</body>
+</html>
