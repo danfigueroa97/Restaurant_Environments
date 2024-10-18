@@ -1,7 +1,8 @@
 package com.example.Restaurante.Controller;
 
 import com.example.Restaurante.Model.Pedido;
-import com.example.Restaurante.Service.PedidoService;
+import com.example.Restaurante.Service.IPedidoService;
+import com.example.Restaurante.dto.CrearPedidoDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +16,7 @@ import java.util.List;
 public class PedidoController {
 
     @Autowired
-    PedidoService pedidoService;
+    IPedidoService pedidoService;
 
     //Listar los pedidos
     @GetMapping("/list")
@@ -31,8 +32,8 @@ public class PedidoController {
 
     // Agregar un Pedido
     @PostMapping("/create")
-    public ResponseEntity<Pedido> agregar(@RequestBody Pedido pedido) {
-        Pedido obj = pedidoService.nuevoPedido(pedido);
+    public ResponseEntity<Pedido> agregar(@RequestBody CrearPedidoDTO dto) {
+        Pedido obj = pedidoService.nuevoPedido(dto);
         return new ResponseEntity<>(obj, HttpStatus.OK);
     }
 
@@ -42,9 +43,9 @@ public class PedidoController {
         Pedido obj = pedidoService.buscarPedido(pedido.getIdPedido());
         if (obj != null) {
             obj.setStatusPedido(pedido.getStatusPedido());
-            obj.setIdMesa(pedido.getIdMesa());
-            obj.setPlatos(pedido.getPlatos());
-            pedidoService.nuevoPedido(obj);
+            obj.setMesa(pedido.getMesa());
+            obj.setItems(pedido.getItems());
+//            pedidoService.nuevoPedido(obj);
         } else {
             return new ResponseEntity<>(obj, HttpStatus.INTERNAL_SERVER_ERROR);
         }

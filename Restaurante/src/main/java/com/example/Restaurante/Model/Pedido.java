@@ -26,8 +26,8 @@ public class Pedido {
 
     @ManyToOne
     @JoinColumn(name = "idMesa")
-    private Mesa idMesa;
+    private Mesa mesa;
 
     @OneToMany
-    private List<Plato> platos;
+    private List<Item> items;
 }

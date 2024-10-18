@@ -2,6 +2,8 @@ package com.example.Restaurante.Service;
 
 import com.example.Restaurante.Model.Mesa;
 import com.example.Restaurante.Model.Pedido;
+import com.example.Restaurante.dto.CrearPedidoDTO;
+
 import java.util.List;
 
 public interface IPedidoService {
@@ -13,7 +15,7 @@ public interface IPedidoService {
     Pedido buscarPedido(Long idPedido);
 
     //Crear un Pedido
-    Pedido nuevoPedido(Pedido pedido);
+    Pedido nuevoPedido(CrearPedidoDTO pedido);
 
     //Eliminar un Pedido
     int borrarPedido(Long idPedido);
