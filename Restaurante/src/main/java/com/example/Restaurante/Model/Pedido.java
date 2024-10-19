@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @Entity
@@ -26,7 +28,6 @@ public class Pedido {
     @JoinColumn(name = "idMesa")
     private Mesa idMesa;
 
-    @ManyToOne
-    @JoinColumn(name = "idPlato")
-    private Plato idPlato;
+    @OneToMany
+    private List<Plato> platos;
 }

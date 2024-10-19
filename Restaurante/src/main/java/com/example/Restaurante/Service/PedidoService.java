@@ -12,7 +12,7 @@ import java.util.List;
 
 @Service
 @Transactional
-public class PedidoService implements IPedidoService{
+public class PedidoService implements IPedidoService {
 
     @Autowired
     PedidoRepository pedidoRepository;
@@ -24,9 +24,9 @@ public class PedidoService implements IPedidoService{
 
     @Override
     public Pedido buscarPedido(Long idPedido) {
-        Pedido pedido =null;
-        pedido=pedidoRepository.findById(idPedido).orElse(null);
-        if (pedido==null){
+        Pedido pedido = null;
+        pedido = pedidoRepository.findById(idPedido).orElse(null);
+        if (pedido == null) {
             return null;
         }
         return pedido;
@@ -39,7 +39,7 @@ public class PedidoService implements IPedidoService{
 
     @Override
     public int borrarPedido(Long idPedido) {
-        pedidoRepository.deleteById(idPedido);
+        pedidoRepository.findById(idPedido).ifPresent(pedido -> pedidoRepository.deleteById(idPedido));
         return 1;
     }
 }
