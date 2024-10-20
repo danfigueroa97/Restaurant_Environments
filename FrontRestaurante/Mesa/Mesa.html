@@ -3,18 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mesas de Restaurante</title>
+    <title>Realizar Pedido</title>
     <link rel="stylesheet" href="Mesa.css">
 </head>
 <body>
-    <section class="mesa-section">
-        <h1>Mesas Disponibles</h1>
-        <div id="mesas">
-            <!-- Aquí se generarán dinámicamente las mesas -->
+    <div class="container">
+        <div id="mesas-container">
+            <h2>MESAS</h2>
+            <ul id="mesas-list"></ul>
         </div>
-    </section>
 
-    <!-- Script para cargar las mesas -->
+        <div id="platos-container" style="display: none;">
+            <h2>REALIZAR PEDIDO - PLATOS DISPONIBLES</h2>
+            <ul id="platos-list"></ul>
+        </div>
+
+        <div id="pedido-container" style="display: none;">
+            <h2>RESUMEN DEL PEDIDO</h2>
+            <ul id="pedido-list"></ul>
+            <button id="crear-pedido-btn">Crear Pedido</button>
+        </div>
+    </div>
+
     <script src="Mesa.js"></script>
 </body>
 </html>

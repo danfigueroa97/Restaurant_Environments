@@ -43,10 +43,10 @@ public class MesaController {
         if(obj != null){
             obj.setStatusMesa(mesa.getStatusMesa());
             mesaService.nuevaMesa(obj);
+            return new ResponseEntity<>(obj,HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(obj,HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(obj,HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<>(obj,HttpStatus.OK);
     }
 
     //Eliminar la Mesa

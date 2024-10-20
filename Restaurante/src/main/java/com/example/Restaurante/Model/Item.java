@@ -19,7 +19,7 @@ public class Item {
   private Long id;
 
   @ManyToOne
-  @JoinColumn(name = "idPedido")
+  @JoinColumn(name = "plato")
   private Plato plato;
 
   private Integer cantidad;

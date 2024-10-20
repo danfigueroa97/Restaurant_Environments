@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 
@@ -20,9 +21,6 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "idPedido")
     private Long idPedido;
-
-    @Column(name = "statusPedido")
-    private Boolean statusPedido;
 
     @ManyToOne
     @JoinColumn(name = "idMesa")

@@ -1,6 +1,7 @@
 package com.example.Restaurante.Service;
 
 import com.example.Restaurante.Model.Item;
+import com.example.Restaurante.Model.Mesa;
 import com.example.Restaurante.Model.Pedido;
 import com.example.Restaurante.Repository.ItemRepository;
 import com.example.Restaurante.Repository.MesaRepository;
@@ -9,6 +10,7 @@ import com.example.Restaurante.Repository.PlatoRepository;
 import com.example.Restaurante.dto.CrearPedidoDTO;
 import jakarta.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,9 +20,7 @@ import org.springframework.stereotype.Service;
 public class PedidoService implements IPedidoService {
 
   @Autowired private PedidoRepository pedidoRepository;
-
   @Autowired private MesaRepository mesaRepository;
-
   @Autowired private PlatoRepository platoRepository;
   @Autowired private ItemRepository itemRepository;
 
@@ -42,7 +42,6 @@ public class PedidoService implements IPedidoService {
   @Override
   public Pedido nuevoPedido(CrearPedidoDTO dto) {
     Pedido pedido = new Pedido();
-    pedido.setStatusPedido(false);
     var mesa =
         this.mesaRepository
             .findById(dto.getIdMesa())
@@ -67,8 +66,21 @@ public class PedidoService implements IPedidoService {
   }
 
   @Override
+  public Pedido editarPedido(Pedido pedido) {
+    return pedidoRepository.save(pedido);
+  }
+
+  @Override
   public int borrarPedido(Long idPedido) {
-    pedidoRepository.findById(idPedido).ifPresent(pedido -> pedidoRepository.deleteById(idPedido));
+    Optional<Pedido> pedidoOptional = pedidoRepository.findById(idPedido);
+    if (pedidoOptional.isPresent()) {
+      Pedido pedido = pedidoOptional.get();
+      Mesa mesa = pedido.getMesa();
+      pedidoRepository.delete(pedido);
+      // Actualizar la mesa a disponible
+      mesa.setStatusMesa(true); // Cambiar a true para disponible
+      mesaRepository.save(mesa);
+    }
     return 1;
   }
 }

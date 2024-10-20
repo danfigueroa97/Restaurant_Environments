@@ -1,6 +1,5 @@
 package com.example.Restaurante.Service;
 
-import com.example.Restaurante.Model.Mesa;
 import com.example.Restaurante.Model.Pedido;
 import com.example.Restaurante.dto.CrearPedidoDTO;
 
@@ -20,4 +19,5 @@ public interface IPedidoService {
     //Eliminar un Pedido
     int borrarPedido(Long idPedido);
 
+    Pedido editarPedido(Pedido pedido);
 }

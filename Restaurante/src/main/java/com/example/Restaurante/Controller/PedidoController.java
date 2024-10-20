@@ -26,8 +26,13 @@ public class PedidoController {
 
     //Buscar por Id
     @GetMapping("/list/{idPedido}")
-    public Pedido buscarPorId(@PathVariable Long idPedido) {
-        return pedidoService.buscarPedido(idPedido);
+    public ResponseEntity<Pedido> buscarPorId(@PathVariable Long idPedido) {
+        Pedido pedido = pedidoService.buscarPedido(idPedido);
+        if (pedido != null) {
+            return new ResponseEntity<>(pedido, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     // Agregar un Pedido
@@ -40,16 +45,19 @@ public class PedidoController {
     //Actualizar el Pedido
     @PutMapping("/update")
     public ResponseEntity<Pedido> editar(@RequestBody Pedido pedido) {
-        Pedido obj = pedidoService.buscarPedido(pedido.getIdPedido());
-        if (obj != null) {
-            obj.setStatusPedido(pedido.getStatusPedido());
-            obj.setMesa(pedido.getMesa());
-            obj.setItems(pedido.getItems());
-//            pedidoService.nuevoPedido(obj);
-        } else {
-            return new ResponseEntity<>(obj, HttpStatus.INTERNAL_SERVER_ERROR);
+        try {
+            Pedido obj = pedidoService.buscarPedido(pedido.getIdPedido());
+            if (obj != null) {
+                obj.setMesa(pedido.getMesa());
+                pedidoService.editarPedido(obj);
+                return new ResponseEntity<>(obj, HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+        } catch (Exception e) {
+            e.printStackTrace(); // Imprimir el error en la consola
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return new ResponseEntity<>(obj, HttpStatus.OK);
     }
 
     //Eliminar el Pedido

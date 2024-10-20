@@ -1,38 +1,211 @@
+/* Estilos para el contenedor principal */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #000000; /* Color de fondo de la página */
+    color: #ffffff; /* Color del texto */
     margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 20px;
 }
 
-.mesa-section {
+/* Título principal */
+h1 {
     text-align: center;
+    color: #ffffff;
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 40px;
 }
 
-#mesas {
+/* Estilos para subtítulos */
+h2 {
+    text-align: center;
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 600;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+/* Estilos para la lista de mesas */
+#mesas-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    list-style-type: none;
+    padding: 0;
+}
+
+#mesas-list li {
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    flex-basis: calc(20% - 20px); /* Ajustar para que quepan 5 mesas por fila */
+    box-sizing: border-box;
+}
+
+#mesas-list li:hover {
+    transform: scale(1.05);
+}
+
+/* Estilos para mesas disponibles y ocupadas */
+.mesa-disponible {
+    background-color: #28a745; /* Verde para mesas disponibles */
+}
+
+.mesa-ocupada {
+    background-color: #dc3545; /* Rojo para mesas ocupadas */
+}
+
+/* Contenedor de platos */
+#platos-container {
     margin-top: 20px;
 }
 
-.mesa {
-    width: 100px; /* Ancho del recuadro */
-    height: 100px; /* Alto del recuadro */
-    margin: 10px; /* Espaciado entre recuadros */
+#platos-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+}
+
+#platos-list li {
+    width: 300px;
+    margin: 15px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #1f1f1f; /* Fondo oscuro para los platos */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Añadido transición de color */
+}
+
+#platos-list li:hover {
+    transform: scale(1.05);
+    background-color: #333; /* Fondo gris al pasar el mouse */
+}
+
+/* Estilo para la imagen de los platos */
+#platos-list li img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Estilos para el nombre y precio del plato */
+#platos-list li p {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #ffffff; /* Texto blanco para el nombre del plato */
+    font-weight: bold; /* Negrilla para el nombre del plato */
+}
+
+/* Estilos para el botón Agregar */
+#platos-list li button {
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #007bff; /* Azul para los botones */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease; /* Añadido transición de color */
+}
+
+#platos-list li button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para el input de cantidad */
+#platos-list li input[type="number"] {
+    width: 60px;
+    padding: 5px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+/* --- NUEVOS ESTILOS PARA EL RESUMEN DEL PEDIDO --- */
+
+/* Contenedor del pedido */
+#pedido-container {
+    margin-top: 30px;
+}
+
+#pedido-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Estilos para cada item del pedido */
+#pedido-list li {
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    color: white; /* Color del texto */
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #444; /* Línea de separación oscura */
+    background-color: #222; /* Fondo oscuro para cada item del pedido */
+}
+
+/* Estilo para la imagen del plato en el resumen */
+#pedido-list li img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
     border-radius: 8px;
-    transition: background-color 0.3s;
+    margin-right: 15px;
 }
 
-.disponible {
-    background-color: green; /* Color para mesa disponible */
+/* Información del plato en el resumen */
+#pedido-list li p {
+    flex-grow: 1;
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold; 
+    color: #ffffff; /* Texto blanco para los detalles del pedido */
 }
 
-.ocupada {
-    background-color: red; /* Color para mesa ocupada */
+/* Cantidad y precio */
+#pedido-list li .cantidad-precio {
+    font-weight: bold;
+    color: #28a745; /* Verde para la cantidad y precio */
+    margin-left: 10px;
+}
+
+/* Botón de crear pedido */
+#crear-pedido-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    background-color: #28a745; /* Verde para el botón de crear pedido */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease; /* Añadido transición de color */
+}
+
+#crear-pedido-btn:hover {
+    background-color: #218838;
 }

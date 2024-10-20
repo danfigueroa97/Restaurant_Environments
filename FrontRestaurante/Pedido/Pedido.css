@@ -1,0 +1,171 @@
+/* Estilos generales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Cambiado a una fuente más moderna */
+    background: linear-gradient(135deg, #0b0c10, #1f2833); /* Fondo degradado */
+    color: #ffffff; /* Texto blanco */
+    margin: 0;
+    padding: 20px;
+}
+
+/* Encabezados */
+h1, h2 {
+    text-align: center;
+    color: #ffffff; /* Texto blanco para encabezados */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Sombra para los encabezados */
+}
+
+/* Sección de pedidos */
+.pedido-list-section {
+    width: 80%;
+    margin: 0 auto;
+    background-color: rgba(45, 52, 54, 0.9); /* Fondo gris oscuro y semi-transparente */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilos de la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse; /* Fusiona los bordes de las celdas */
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left; /* Alineación a la izquierda para texto */
+    border: 1px solid #444; /* Bordes oscuros */
+}
+
+/* Estilo para los encabezados */
+th {
+    background-color: #5a6268; /* Fondo gris para encabezados */
+    color: white; /* Texto blanco para encabezados */
+    font-weight: bold; /* Negrita para encabezados */
+}
+
+/* Estilo para las celdas */
+td {
+    background-color: #222; /* Fondo negro para celdas */
+    color: white; /* Texto blanco para celdas */
+}
+
+/* Hover en filas */
+tr:hover {
+    background-color: #444; /* Color de fondo al pasar el mouse sobre una fila */
+}
+
+/* Estilos de imagen */
+td img, .item-image {
+    border-radius: 4px;
+    width: 50px; 
+    height: 50px; 
+    margin-right: 10px; /* Espacio entre la imagen y el texto */
+    vertical-align: middle;
+}
+
+/* Estilos de los botones */
+button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Botones de actualizar y eliminar */
+.update-btn {
+    background-color: #28a745; /* Verde */
+    color: white;
+}
+
+.update-btn:hover {
+    background-color: #218838; /* Verde más oscuro */
+}
+
+.delete-btn {
+    background-color: #dc3545; /* Rojo */
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #c82333; /* Rojo más oscuro */
+}
+
+/* Estilos adicionales para mejorar la accesibilidad */
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Sección de artículos */
+.item-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.item-details {
+    flex-grow: 1; /* Permite que el contenedor de detalles use el espacio disponible */
+    display: flex;
+    flex-direction: column; /* Coloca el nombre encima del contenedor de cantidad */
+}
+
+.cantidad-container {
+    display: flex;
+    align-items: center; /* Alinea verticalmente el label, input y botón */
+}
+
+.cantidad-input {
+    width: 50px;
+    padding: 5px;
+    margin-left: 5px; /* Espacio entre el label y el input */
+}
+
+.item-name {
+    font-weight: bold; /* Resalta el nombre del producto */
+    margin-bottom: 5px; /* Espacio entre el nombre y la cantidad */
+}
+
+/* Estilos del modal */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.9); /* Fondo más oscuro para el modal */
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #333; /* Fondo oscuro para el contenido del modal */
+    margin: 5% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+    border-radius: 8px; /* Bordes redondeados para el modal */
+}
+
+.close {
+    color: #aaa; /* Color claro para el botón de cerrar */
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #ffffff; /* Cambia a blanco al pasar el mouse */
+}
+
+#formularioItem {
+    margin: 10px 0;
+}
+
+#listaItems {
+    margin-top: 10px;
+}
