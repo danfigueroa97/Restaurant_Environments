@@ -1,7 +1,7 @@
 /* Estilos generales del cuerpo */
 body {
     font-family: Arial, sans-serif; /* Fuente más legible */
-    background-color: #000000; /* Color de fondo suave */
+    background-color: #ffffff; /* Color de fondo suave */
     margin: 0;
     padding: 20px;
 }
@@ -11,19 +11,20 @@ body {
     max-width: 1200px; /* Ancho máximo para el menú */
     margin: 0 auto; /* Centrar la sección */
     padding: 20px; /* Espaciado interno */
-    background-color: rgb(0, 0, 0); /* Fondo blanco para contraste */
+    background-color: rgba(255, 251, 0, 0.24); /* Fondo blanco para contraste */
     border-radius: 8px; /* Bordes redondeados */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
 /* Títulos de categorías */
 .menu-section h1 {
-    font-size: 24px; /* Tamaño de fuente más grande */
-    color: #ffffff; /* Color oscuro */
-    margin-top: 20px; /* Espacio arriba */
-    margin-bottom: 10px; /* Espacio abajo */
-    border-bottom: 2px solid #007bff; /* Línea inferior color azul */
+    font-size: 35px; /* Tamaño de fuente más grande */
+    color: #009425; /* Color oscuro */
+    margin-top: 33px; /* Espacio arriba */
+    margin-bottom: 12px; /* Espacio abajo */
+    border-bottom: 2px solid #009425; /* Línea inferior color azul */
     padding-bottom: 5px; /* Espaciado interno */
+    text-align: center;
 }
 
 /* Lista de platos */
@@ -36,7 +37,7 @@ body {
 /* Elementos individuales de platos */
 .menu-item {
     display: flex; /* Usar flexbox para alineación */
-    background-color: #000000; /* Fondo ligero para cada plato */
+    background-color: #ffffff; /* Fondo ligero para cada plato */
     border: 1px solid #ddd; /* Borde suave */
     border-radius: 5px; /* Bordes redondeados */
     margin-bottom: 15px; /* Espacio entre platos */
@@ -65,19 +66,19 @@ body {
 /* Nombre del plato */
 .menu-text h3 {
     font-size: 20px; /* Tamaño de fuente para el nombre */
-    color: #007bff; /* Color azul para el nombre */
+    color: #000000; /* Color azul para el nombre */
     margin: 0; /* Sin margen */
 }
 
 /* Descripción del plato */
 .menu-text .description {
-    color: #ffffff; /* Color gris para la descripción */
+    color: #807e7e; /* Color gris para la descripción */
     margin: 5px 0; /* Espaciado arriba y abajo */
 }
 
 /* Precio del plato */
 .menu-text .price {
     font-size: 18px; /* Tamaño de fuente para el precio */
-    color: #ffffff; /* Color oscuro */
+    color: #009425; /* Color oscuro */
     font-weight: bold; /* Texto en negrita */
 }
