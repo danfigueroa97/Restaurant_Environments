@@ -64,10 +64,10 @@ public class UsuarioService implements IUsuarioService{
             // Redirigir en función del rol
             if (usuario.getRol() == Rol.ADMIN) {
                 response.put("Mensaje", "Bienvenido Administrador");
-                response.put("Endpoint", "/admin/dashboard");
+                response.put("Endpoint", "/Admin/Admin.html");
             } else if (usuario.getRol() == Rol.MESERO) {
                 response.put("Mensaje", "Bienvenido Mesero");
-                response.put("Endpoint", "/mesero/dashboard");
+                response.put("Endpoint", "/Mesa/Mesa.html");
             }
 
             return new ResponseEntity<>(response, HttpStatus.OK);

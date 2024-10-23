@@ -209,3 +209,21 @@ h2 {
 #crear-pedido-btn:hover {
     background-color: #218838;
 }
+#btnLogout {
+    background-color: crimson; /* Cambia el color de fondo a rojo */
+    padding: 10px 15px; /* Espaciado interno */
+    margin: 10px 0; /* Espacio vertical alrededor del botón */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    color: white; /* Color del texto */
+    transition: background-color 0.3s; /* Efecto de transición al cambiar el color de fondo */
+    position: absolute; /* Permite moverlo libremente dentro del contenedor */
+    top: 20px; /* Espacio desde la parte superior */
+    right: 20px; /* Espacio desde la derecha */
+}
+
+#btnLogout:hover {
+    background-color: darkred; /* Color al pasar el mouse sobre el botón */
+}
+

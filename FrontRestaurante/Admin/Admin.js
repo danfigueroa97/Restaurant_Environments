@@ -9,3 +9,9 @@ document.getElementById("btnMenu").addEventListener("click", function() {
 document.getElementById("btnPedido").addEventListener("click", function() {
     window.location.href = "../Pedido/Pedido.html"; // Cambia a la ruta de tu CRUD de pedidos
 });
+
+document.getElementById("btnLogout").addEventListener("click", function() {
+    // Aquí puedes implementar la lógica para cerrar sesión
+    alert("Has cerrado sesión"); // Ejemplo de acción
+    window.location.href = "../Login/Usuario.html"; // Cambia a la página de login después de cerrar sesión
+});

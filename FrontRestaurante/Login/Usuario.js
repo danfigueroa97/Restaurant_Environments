@@ -1,44 +1,35 @@
-function validarLogin() {
-    // Obtener los valores del formulario
-    const usuario = document.getElementById('icon_user').value;
-    const contrasena = document.getElementById('icon_pass').value;
+document.getElementById("btnLogin").addEventListener("click", function() {
+    const username = document.getElementById("icon_user").value;
+    const password = document.getElementById("icon_pass").value;
 
-    // Validar que los campos no estén vacíos
-    if (usuario.trim() === "" || contrasena.trim() === "") {
-        alert("Por favor, completa todos los campos.");
-        return;
-    }
+    const apiUrl = "http://localhost:8080/api/usuarios/login"; // Cambia esta URL si es necesario
 
-    // Crear el objeto de usuario
-    const datosUsuario = {
-        nombre: usuario,
-        contrasena: contrasena
+    const loginData = {
+        nombre: username,
+        contrasena: password
     };
 
-    // Realizar la solicitud de login
-    fetch('http://localhost:8080/api/usuarios/login', { // Cambia la URL si es necesario
-        method: 'POST',
+    fetch(apiUrl, {
+        method: "POST",
         headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json"
         },
-        body: JSON.stringify(datosUsuario)
+        body: JSON.stringify(loginData)
     })
     .then(response => {
         if (!response.ok) {
-            throw new Error('Error en el login'); // Manejar error de respuesta
+            throw new Error("Error en las credenciales");
         }
-        return response.json(); // Procesar la respuesta JSON
+        return response.json();
     })
     .then(data => {
-        if (data) {
-            // Aquí puedes manejar lo que sucede después del login exitoso
-            alert('Inicio de sesión exitoso!');
-            // Redirigir a otra página o realizar otra acción
-            window.location.href = 'dashboard.html'; // Cambia esto a la URL del panel de control
+        alert(data.Mensaje); // Muestra un mensaje de bienvenida o error
+        if (data.Endpoint) {
+            window.location.href = data.Endpoint; // Redirige según el rol
         }
     })
     .catch(error => {
-        console.error('Error:', error);
-        alert('Usuario o contraseña incorrectos.'); // Mostrar mensaje de error
+        alert(error.message);
     });
-}
+
+});
