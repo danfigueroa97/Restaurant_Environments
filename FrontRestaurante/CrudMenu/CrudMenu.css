@@ -96,6 +96,11 @@ button:hover {
     background-color: #45a049;
 }
 
+#btnVolver{
+    background-color:crimson
+}
+
+
 .delete-btn {
     background-color: #f44336;
     color: white;

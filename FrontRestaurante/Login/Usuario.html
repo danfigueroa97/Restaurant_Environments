@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="Usuario.css" rel="stylesheet" type="text/css"/>
+    <title>Login</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 offset-m3">
+                <div class="card dark-theme">
+                    <form id="loginForm" method="POST">
+                        <div class="card-content center">
+                            <span class="card-title">INICIAR SESIÓN</span>
+                            <p class="grey-text">Acceso exclusivo para empleados.</p>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <i class="material-icons prefix">account_circle</i>
+                                    <input id="icon_user" type="text" name="txtUsuario" class="validate" placeholder="Usuario" required>
+                                </div>
+                                <div class="input-field col s12">
+                                    <i class="material-icons prefix">lock</i>
+                                    <input id="icon_pass" type="password" name="txtPassword" class="validate" placeholder="password" required>
+                                </div>
+                            </div>                                
+                        </div>
+                        <div class="card-action center">
+                            <button type="button" class="btn btn-large" id="btnLogin">
+                                Ingresar<i class="material-icons right">directions_run</i>
+                            </button>
+                        </div>
+                    </form>
+                </div>   
+            </div>                
+        </div>                    
+    </div>
+    <script src="Usuario.js"></script>
+</body>
+</html>

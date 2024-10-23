@@ -161,7 +161,11 @@ async function crearPedido() {
         alert('Hubo un error al actualizar el estado de la mesa.');
     }
 }
-
+document.getElementById("btnLogout").addEventListener("click", function() {
+    // Aquí puedes implementar la lógica para cerrar sesión
+    alert("Has cerrado sesión"); // Ejemplo de acción
+    window.location.href = "../Login/Usuario.html"; // Cambia a la página de login después de cerrar sesión
+});
 document.getElementById('crear-pedido-btn').addEventListener('click', crearPedido);
 
 // Inicializar la página cargando mesas

@@ -19,6 +19,5 @@ public interface IUsuarioService {
     //Eliminar un Usuario
     int borrarUsuario(Long id);
 
-    int login(Usuario usuario);
     ResponseEntity<?> ingresar(Usuario usuario);
 }

@@ -142,7 +142,9 @@ function asignarFuncionesBotones() {
         });
     });
 }
-
+document.getElementById("btnVolver").addEventListener("click", function() {
+    window.location.href = "../Admin/Admin.html"; // Cambia a la ruta de tu interfaz de admin
+});
 // Cargar la lista de pedidos al inicio
 obtenerPedidos();
 

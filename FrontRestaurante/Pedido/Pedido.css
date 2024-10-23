@@ -92,6 +92,9 @@ button {
     background-color: #c82333; /* Rojo más oscuro */
 }
 
+#btnVolver{
+    background-color:crimson
+}
 /* Estilos adicionales para mejorar la accesibilidad */
 button:disabled {
     background-color: #ccc;
