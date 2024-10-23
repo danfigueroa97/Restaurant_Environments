@@ -225,5 +225,7 @@ document.getElementById('updatePlatoForm').addEventListener('submit', function (
     actualizarPlato(nombre, descripcion, precio, imagen, idCategoria, idPlato);
     this.reset(); // Limpiar el formulario
 });
-
+document.getElementById("btnVolver").addEventListener("click", function() {
+    window.location.href = "../Admin/Admin.html"; // Cambia a la ruta de tu interfaz de admin
+});
 obtenerPlatos(); // Cargar los platos al inicio

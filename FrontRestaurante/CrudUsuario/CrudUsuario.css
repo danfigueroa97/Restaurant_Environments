@@ -62,7 +62,9 @@ button {
 #btnActualizar {
     background-color: #ffc107; /* Amarillo */
 }
-
+#btnVolver{
+    background-color:crimson
+}
 #btnCancelar {
     background-color: #dc3545; /* Rojo */
     color: #f1f1f1;
