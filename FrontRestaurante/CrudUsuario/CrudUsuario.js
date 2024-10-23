@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const btnCrear = document.getElementById("btnCrear");
     const btnActualizar = document.getElementById("btnActualizar");
     const btnCancelar = document.getElementById("btnCancelar");
+    const rolField = document.getElementById("rol");
 
     const apiUrl = "http://localhost:8080/api/usuarios"; // Cambia esta URL si es necesario
 
@@ -29,8 +30,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     row.innerHTML = `
                         <td>${usuario.idUsuario}</td>
                         <td>${usuario.nombre}</td>
+                        <td>${usuario.rol}</td>
+
                         <td>
-                            <button class="btnEditar" data-id="${usuario.idUsuario}">Editar</button>
+                            <button class="btnEditar" data-id="${usuario.idUsuario}">Actualizar</button>
                             <button class="btnEliminar" data-id="${usuario.idUsuario}">Eliminar</button>
                         </td>
                     `;
@@ -67,6 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 idUsuarioField.value = usuario.idUsuario; // Muestra el ID en el campo correspondiente
                 nombreField.value = usuario.nombre;
                 contrasenaField.value = usuario.contrasena;
+                rolField.value = usuario.rol;
 
                 btnCrear.style.display = 'none'; // Oculta el botón de crear
                 btnActualizar.style.display = 'block'; // Muestra el botón de actualizar
@@ -91,6 +95,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const nuevoUsuario = {
             nombre: nombreField.value,
             contrasena: contrasenaField.value,
+            rol: document.getElementById("rol").value // Captura el rol actualizado
+
         };
 
         fetch(`${apiUrl}/create`, {
@@ -115,6 +121,8 @@ document.addEventListener("DOMContentLoaded", function () {
             idUsuario: idUsuarioField.value,
             nombre: nombreField.value,
             contrasena: contrasenaField.value,
+            rol: document.getElementById("rol").value // Captura el rol actualizado
+
         };
 
         fetch(`${apiUrl}/update`, {

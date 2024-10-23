@@ -43,6 +43,7 @@ public class UsuarioController {
         if(obj != null){
             obj.setNombre(usuario.getNombre());
             obj.setContrasena(usuario.getContrasena());
+            obj.setRol(usuario.getRol());
             usuarioService.nuevoUsuario(obj);
         } else {
             return new ResponseEntity<>(obj,HttpStatus.INTERNAL_SERVER_ERROR);
@@ -61,13 +62,9 @@ public class UsuarioController {
         }
         return new ResponseEntity<>(obj, HttpStatus.OK);
     }
-    @PostMapping("/logincliente")
-    public int login(@RequestBody Usuario usuario){
-        int responseLogin = usuarioService.login(usuario);
-        return responseLogin;
-    }
+
     @PostMapping("/login")
-    public ResponseEntity<?> loginCliente(@RequestBody Usuario usuario){
+    public ResponseEntity<?> login(@RequestBody Usuario usuario){
         return usuarioService.ingresar(usuario);
     }
 }

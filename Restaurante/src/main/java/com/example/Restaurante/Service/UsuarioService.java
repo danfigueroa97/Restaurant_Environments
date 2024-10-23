@@ -2,6 +2,7 @@ package com.example.Restaurante.Service;
 
 import com.example.Restaurante.Model.Usuario;
 import com.example.Restaurante.Repository.UsuarioRepository;
+import com.example.Restaurante.enums.Rol;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.HashMap;
@@ -46,14 +47,6 @@ public class UsuarioService implements IUsuarioService{
         return 1;
     }
 
-    @Override
-    public int login(Usuario usuario) {
-        int u = usuarioRepository.countByContrasenaAndNombre(
-                usuario.getNombre(),
-                usuario.getContrasena());
-        return u;
-    }
-    @Override
     public ResponseEntity<?> ingresar(Usuario usuarioBusca) {
         Map<String, Object> response = new HashMap<>();
 
@@ -64,21 +57,24 @@ public class UsuarioService implements IUsuarioService{
 
             if (usuario == null) {
                 response.put("Usuario", null);
-                response.put("Mensaje", "Alerta: Usuario o Contraseña incorrectos");
-                response.put("statusCode", HttpStatus.NOT_FOUND.value());
+                response.put("Mensaje", "Usuario o contraseña incorrectos");
                 return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
-            } else {
-                response.put("Usuario", usuario);
-                response.put("Mensaje", "Datos correctos");
-                response.put("statusCode", HttpStatus.OK.value());
-                return new ResponseEntity<>(response, HttpStatus.OK);
             }
+
+            // Redirigir en función del rol
+            if (usuario.getRol() == Rol.ADMIN) {
+                response.put("Mensaje", "Bienvenido Administrador");
+                response.put("Endpoint", "/admin/dashboard");
+            } else if (usuario.getRol() == Rol.MESERO) {
+                response.put("Mensaje", "Bienvenido Mesero");
+                response.put("Endpoint", "/mesero/dashboard");
+            }
+
+            return new ResponseEntity<>(response, HttpStatus.OK);
+
         } catch (Exception e) {
-            response.put("Usuario", null);
             response.put("Mensaje", "Ha ocurrido un error");
-            response.put("statusCode", HttpStatus.INTERNAL_SERVER_ERROR.value());
             return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
         }
-
     }
 }

@@ -13,7 +13,14 @@
             <input type="text" id="idUsuario" placeholder="ID" disabled>            
             <input type="text" id="nombre" placeholder="Nombre" required>
             <input type="password" id="contrasena" placeholder="Contraseña" required>
+            <label for="rol">Rol:</label>
+            <select id="rol" required>
+                <option value="">Selecciona un rol</option>
+                <option value="ADMIN">Administrador</option>
+                <option value="MESERO">Mesero</option>
+            </select>
             <button type="button" id="btnCrear">Crear</button>
+            <button id="button">Volver</button>
             <button type="button" id="btnActualizar">Actualizar</button>
             <button type="button" id="btnCancelar">Cancelar</button>
         </form>
@@ -22,6 +29,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
+                    <th>rol</th>
                     <th>Acciones</th> <!-- Asegúrate de que hay una columna para acciones -->
                 </tr>
             </thead>

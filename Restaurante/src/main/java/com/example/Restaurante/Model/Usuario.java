@@ -23,6 +23,9 @@ public class Usuario {
     @Column(name = "nombre")
     private String nombre;
 
+    @Column(name = "rol")
+    private Rol rol;
+
     @Column(name = "contrasena")
     private String contrasena;
 }
