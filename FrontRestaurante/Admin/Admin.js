@@ -1,17 +1,16 @@
 document.getElementById("btnUsuarios").addEventListener("click", function() {
-    window.location.href = "../CrudUsuario/CrudUsuario.html"; // Cambia a la ruta de tu CRUD de usuarios
+    window.location.href = "../CrudUsuario/CrudUsuario.html"; 
 });
 
 document.getElementById("btnMenu").addEventListener("click", function() {
-    window.location.href = "../CrudMenu/CrudMenu.html"; // Cambia a la ruta de tu CRUD de productos
+    window.location.href = "../CrudMenu/CrudMenu.html"; 
 });
 
 document.getElementById("btnPedido").addEventListener("click", function() {
-    window.location.href = "../Pedido/Pedido.html"; // Cambia a la ruta de tu CRUD de pedidos
+    window.location.href = "../Pedido/Pedido.html"; 
 });
 
 document.getElementById("btnLogout").addEventListener("click", function() {
-    // Aquí puedes implementar la lógica para cerrar sesión
-    alert("Has cerrado sesión"); // Ejemplo de acción
-    window.location.href = "../Login/Usuario.html"; // Cambia a la página de login después de cerrar sesión
+    alert("Has cerrado sesión"); 
+    window.location.href = "../Login/Usuario.html"
 });

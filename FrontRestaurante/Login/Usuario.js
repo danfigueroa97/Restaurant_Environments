@@ -2,7 +2,7 @@ document.getElementById("btnLogin").addEventListener("click", function() {
     const username = document.getElementById("icon_user").value;
     const password = document.getElementById("icon_pass").value;
 
-    const apiUrl = "http://localhost:8080/api/usuarios/login"; // Cambia esta URL si es necesario
+    const apiUrl = "http://localhost:8080/api/usuarios/login"; 
 
     const loginData = {
         nombre: username,

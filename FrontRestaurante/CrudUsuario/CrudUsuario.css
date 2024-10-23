@@ -2,14 +2,14 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 20px;
-    background-color: #121212; /* Color de fondo oscuro */
-    color: #f1f1f1; /* Color del texto */
+    background-color: #121212; 
+    color: #f1f1f1;
 }
 
 .container {
     max-width: 600px;
     margin: auto;
-    background-color: #1c1c1c; /* Fondo del contenedor */
+    background-color: #1c1c1c; 
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
@@ -19,7 +19,7 @@ h1 {
     text-align: center;
     margin-bottom: 20px;
     font-size: 24px;
-    color: #4CAF50; /* Color verde */
+    color: #4CAF50; 
 }
 
 form {
@@ -32,16 +32,16 @@ input {
     margin: 10px 0;
     padding: 12px;
     font-size: 16px;
-    border: 1px solid #555; /* Bordes oscuros */
+    border: 1px solid #555; 
     border-radius: 4px;
-    background-color: #333; /* Fondo de entrada oscuro */
-    color: #ffffff; /* Texto claro en entradas */
+    background-color: #333; 
+    color: #ffffff; 
     transition: border-color 0.3s;
 }
 
 input:focus {
-    border-color: #4CAF50; /* Color de borde al enfocar */
-    outline: none; /* Sin borde adicional */
+    border-color: #4CAF50; 
+    outline: none;
 }
 
 button {
@@ -54,25 +54,25 @@ button {
     transition: background-color 0.3s, transform 0.2s;
 }
 
-/* Estilos de botones */
+
 #btnCrear {
-    background-color: #28a745; /* Verde */
+    background-color: #28a745; 
 }
 
 #btnActualizar {
-    background-color: #ffc107; /* Amarillo */
+    background-color: #ffc107;
 }
 #btnVolver{
     background-color:crimson
 }
 #btnCancelar {
-    background-color: #dc3545; /* Rojo */
+    background-color: #dc3545; 
     color: #f1f1f1;
 }
 
 button:hover {
-    opacity: 0.9; /* Efecto de transparencia al pasar el mouse */
-    transform: translateY(-2px); /* Efecto de elevación */
+    opacity: 0.9; 
+    transform: translateY(-2px); 
 }
 
 table {
@@ -82,19 +82,19 @@ table {
 }
 
 th, td {
-    border: 1px solid #444; /* Bordes oscuros */
-    padding: 8px; /* Espacio reducido en las celdas */
+    border: 1px solid #444; 
+    padding: 8px; 
     text-align: left;
 }
 
 th {
-    background-color: #333; /* Fondo de encabezados de tabla */
-    color: #f1f1f1; /* Texto claro en encabezados */
+    background-color: #333; 
+    color: #f1f1f1; 
 }
 
 /* Estilo para botones en la tabla */
 .btnEditar {
-    background-color: #ffc107; /* Amarillo */
+    background-color: #ffc107; 
     color: rgb(0, 0, 0);
     border: none;
     padding: 6px 12px;
@@ -102,7 +102,7 @@ th {
 }
 
 .btnEliminar {  
-    background-color: #dc3545; /* Rojo */
+    background-color: #dc3545; 
     color: white;
     border: none;
     padding: 6px 12px;
@@ -110,9 +110,9 @@ th {
 }
 
 table tr:hover {
-    background-color: #222; /* Color oscuro al pasar el mouse sobre las filas */
+    background-color: #222; 
 }
 
 td button {
-    margin: 0 5px; /* Espaciado entre botones */
+    margin: 0 5px; 
 }

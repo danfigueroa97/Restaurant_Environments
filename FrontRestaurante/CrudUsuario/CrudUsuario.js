@@ -10,11 +10,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const rolField = document.getElementById("rol");
     const btnVolver = document.getElementById("btnVolver"); 
 
-    const apiUrl = "http://localhost:8080/api/usuarios"; // Cambia esta URL si es necesario
+    const apiUrl = "http://localhost:8080/api/usuarios"; 
 
-    // Ocultar los botones de actualizar y cancelar al inicio
-    btnActualizar.style.display = 'none'; // Oculta el botón de actualizar
-    btnCancelar.style.display = 'none'; // Oculta el botón de cancelar
+
+    btnActualizar.style.display = 'none'; 
+    btnCancelar.style.display = 'none'; 
 
     function cargarUsuarios() {
         fetch(`${apiUrl}/list`)
@@ -68,14 +68,14 @@ document.addEventListener("DOMContentLoaded", function () {
         fetch(`${apiUrl}/list/${id}`)
             .then(response => response.json())
             .then(usuario => {
-                idUsuarioField.value = usuario.idUsuario; // Muestra el ID en el campo correspondiente
+                idUsuarioField.value = usuario.idUsuario;
                 nombreField.value = usuario.nombre;
                 contrasenaField.value = usuario.contrasena;
                 rolField.value = usuario.rol;
 
-                btnCrear.style.display = 'none'; // Oculta el botón de crear
-                btnActualizar.style.display = 'block'; // Muestra el botón de actualizar
-                btnCancelar.style.display = 'block'; // Muestra el botón de cancelar
+                btnCrear.style.display = 'none'; 
+                btnActualizar.style.display = 'block';
+                btnCancelar.style.display = 'block'; 
                 btnVolver.style.display = 'none'; 
             })
             .catch(error => alert("Error al obtener usuario: " + error.message));
@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const nuevoUsuario = {
             nombre: nombreField.value,
             contrasena: contrasenaField.value,
-            rol: document.getElementById("rol").value // Captura el rol actualizado
+            rol: document.getElementById("rol").value 
 
         };
 
@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
         })
             .then(() => {
                 cargarUsuarios();
-                usuarioForm.reset(); // Restablece el formulario
+                usuarioForm.reset(); 
                 idUsuarioField.value = '';  
             })
             .catch(error => alert("Error al crear usuario: " + error.message));
@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", function () {
             idUsuario: idUsuarioField.value,
             nombre: nombreField.value,
             contrasena: contrasenaField.value,
-            rol: document.getElementById("rol").value // Captura el rol actualizado
+            rol: document.getElementById("rol").value 
 
         };
 
@@ -136,10 +136,10 @@ document.addEventListener("DOMContentLoaded", function () {
         })
             .then(() => {
                 cargarUsuarios();
-                usuarioForm.reset(); // Restablece el formulario
-                idUsuarioField.value = ''; // Restablece el campo ID
-                btnActualizar.style.display = 'none'; // Oculta el botón de actualizar
-                btnCancelar.style.display = 'none'; // Oculta el botón de cancelar
+                usuarioForm.reset();
+                idUsuarioField.value = ''; 
+                btnActualizar.style.display = 'none'; 
+                btnCancelar.style.display = 'none';
                 btnCrear.style.display = 'block';
                 btnVolver.style.display = 'none'; 
             })
@@ -147,18 +147,18 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     btnCancelar.addEventListener("click", function () {
-        usuarioForm.reset(); // Restablece el formulario
-        btnActualizar.style.display = 'none'; // Oculta el botón de actualizar
-        btnCancelar.style.display = 'none'; // Oculta el botón de cancelar
-        btnCrear.style.display = 'block'; // Muestra el botón de crear
+        usuarioForm.reset(); 
+        btnActualizar.style.display = 'none'; 
+        btnCancelar.style.display = 'none'; 
+        btnCrear.style.display = 'block'; 
         btnVolver.style.display = 'block'; 
-        idUsuarioField.value = ''; // Restablece el campo ID
+        idUsuarioField.value = '';
         
     });
 
     btnVolver.addEventListener("click", function() {
-        window.location.href = "../Admin/Admin.html"; // Cambia a la ruta de tu interfaz de admin
+        window.location.href = "../Admin/Admin.html"; 
     });
 
-    cargarUsuarios(); // Carga los usuarios al inicio
+    cargarUsuarios(); 
 });
