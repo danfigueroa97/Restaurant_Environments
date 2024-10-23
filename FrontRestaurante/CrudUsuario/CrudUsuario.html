@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD de Usuarios</title>
+    <link rel="stylesheet" href="CrudUsuario.css"> <!-- Asegúrate de que esta línea está presente -->
+</head>
+<body>
+    <div class="container">
+        <h1>Gestión de Usuarios</h1>
+        <form id="usuarioForm">
+            <input type="text" id="idUsuario" placeholder="ID" disabled>            
+            <input type="text" id="nombre" placeholder="Nombre" required>
+            <input type="password" id="contrasena" placeholder="Contraseña" required>
+            <button type="button" id="btnCrear">Crear</button>
+            <button type="button" id="btnActualizar">Actualizar</button>
+            <button type="button" id="btnCancelar">Cancelar</button>
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Acciones</th> <!-- Asegúrate de que hay una columna para acciones -->
+                </tr>
+            </thead>
+            <tbody id="usuarioTableBody"></tbody>
+        </table>
+    </div>
+    <script src="CrudUsuario.js"></script> <!-- Asegúrate de que esta línea está presente -->
+</body>
+</html>
