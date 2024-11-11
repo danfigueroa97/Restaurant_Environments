@@ -1,14 +1,33 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../estilos/Loginn.css';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
+  const [nombreUsuario, setNombreUsuario] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Aquí puedes agregar la lógica para el inicio de sesión
-    console.log("Email:", email, "Password:", password);
+
+    try {
+      const response = await fetch('http://localhost:8090/api/usuarios/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ nombreUsuario, password }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        navigate('/cliente');
+      } else {
+        console.error("Error en las credenciales");
+      }
+    } catch (error) {
+      console.error("Error en la solicitud de inicio de sesión", error);
+    }
   };
 
   return (
@@ -17,13 +36,13 @@ const Login = () => {
         <h2>Iniciar Sesión</h2>
         <form onSubmit={handleSubmit}>
           <div className="input-container">
-            <label htmlFor="email">Correo Electrónico</label>
+            <label htmlFor="nombreUsuario">Nombre de Usuario</label>
             <input
-              type="email"
-              id="email"
-              placeholder="Ingrese su correo"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              type="text"
+              id="nombreUsuario"
+              placeholder="Ingrese su nombre de usuario"
+              value={nombreUsuario} 
+              onChange={(e) => setNombreUsuario(e.target.value)} 
               required
             />
           </div>
@@ -46,3 +65,4 @@ const Login = () => {
 };
 
 export default Login;
+

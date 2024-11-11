@@ -1,0 +1,71 @@
+/* Estilos generales para el contenedor */
+div {
+    margin: 20px;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+  }
+  
+  /* Título de la tabla */
+  h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilo de la tabla */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Estilos de las celdas */
+  th, td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  /* Estilo para las cabeceras */
+  th {
+    background-color: #34495e;
+    color: white;
+    font-weight: bold;
+  }
+  
+  /* Estilo para las filas */
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  tr:hover {
+    background-color: #f1c40f;
+    color: #fff;
+  }
+  
+  /* Agregar un borde redondeado a las tablas */
+  table, th, td {
+    border-radius: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  /* Estilo para la tabla cuando no hay datos */
+  table.empty {
+    text-align: center;
+    font-style: italic;
+    color: #7f8c8d;
+  }
+  
+  /* Ajustes para pantallas pequeñas */
+  @media screen and (max-width: 768px) {
+    th, td {
+      padding: 8px;
+      font-size: 12px;
+    }
+  
+    h2 {
+      font-size: 18px;
+    }
+  }
+  
