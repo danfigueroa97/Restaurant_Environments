@@ -20,19 +20,19 @@ import javax.persistence.Table;
 @Entity
 @Table(name = Cliente.TABLE_NAME)
 public class Cliente {
-    
+
     public static final String TABLE_NAME = "cliente";
 
     /*
 	 * @id para identificar la llave primaria
 	 * @@GeneratedValue(strategy = GenerationType.IDENTITY)
-         se define el autoincremental	
+         se define el autoincremental
 	 * */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    /*@ManyToOne  hace referencia la relacion muchos a uno en este caso 
+    /*@ManyToOne  hace referencia la relacion muchos a uno en este caso
     muchos usuario tienen un tipo de documento
    * @JoinColumn  el campo que hace de referecia a la llave foranea
 	 * */
@@ -130,5 +130,5 @@ public class Cliente {
         this.email = email;
     }
 
-    
+
 }

@@ -42,13 +42,13 @@ public class ClienteController {
         return clienteService.getCliente(id);
     }
 
-    @PostMapping("/")
+    @PostMapping("/agregar")
     public ResponseEntity<Cliente> agregar(@RequestBody Cliente cliente){
         Cliente obj = clienteService.grabarCliente(cliente);
         return new ResponseEntity<>(obj, HttpStatus.OK);
     }
 
-    @PutMapping("/")
+    @PutMapping("/editar")
     public ResponseEntity<Cliente> editar(@RequestBody Cliente cliente){
         Cliente obj = clienteService.getCliente(cliente.getId());
         if(obj != null){
@@ -65,7 +65,7 @@ public class ClienteController {
         return new ResponseEntity<>(obj, HttpStatus.OK);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Cliente> eliminar(@PathVariable Long id){
         Cliente obj = clienteService.getCliente(id);
         if(obj != null){

@@ -1,71 +1,162 @@
-/* Estilos generales para el contenedor */
-div {
-    margin: 20px;
-    font-family: 'Arial', sans-serif;
-    color: #333;
-  }
-  
-  /* Título de la tabla */
-  h2 {
-    text-align: center;
-    color: #2c3e50;
-    margin-bottom: 20px;
-  }
-  
-  /* Estilo de la tabla */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background-color: #f9f9f9;
-  }
-  
-  /* Estilos de las celdas */
-  th, td {
-    padding: 12px;
-    text-align: left;
-    border: 1px solid #ddd;
-  }
-  
-  /* Estilo para las cabeceras */
-  th {
-    background-color: #34495e;
-    color: white;
-    font-weight: bold;
-  }
-  
-  /* Estilo para las filas */
-  tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
-  tr:hover {
-    background-color: #f1c40f;
-    color: #fff;
-  }
-  
-  /* Agregar un borde redondeado a las tablas */
-  table, th, td {
-    border-radius: 8px;
-    border: 1px solid #ddd;
-  }
-  
-  /* Estilo para la tabla cuando no hay datos */
-  table.empty {
-    text-align: center;
-    font-style: italic;
-    color: #7f8c8d;
-  }
-  
-  /* Ajustes para pantallas pequeñas */
-  @media screen and (max-width: 768px) {
-    th, td {
-      padding: 8px;
-      font-size: 12px;
-    }
-  
-    h2 {
-      font-size: 18px;
-    }
-  }
-  
+/* Estilos generales */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+}
+
+/* Título */
+h2 {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 30px;
+  color: #333;
+}
+
+/* Botón Agregar Cliente alineado a la derecha con margen adecuado */
+button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  position: relative;
+  margin-left: auto;
+  margin-right: 67px; 
+  margin-bottom: 20px;
+  display: block;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+button:focus {
+  outline: none;
+}
+
+table {
+  width: 90%;
+  margin: 30px auto;
+  border-collapse: collapse;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* sombra para el relieve */
+}
+
+th, td {
+  padding: 20px 25px; /* Aumento del padding para celdas más grandes */
+  text-align: center;
+  border: 1px solid #ddd;
+  font-size: 18px; /* Aumento del tamaño de la fuente */
+}
+
+th {
+  background-color: #2196F3; /* azul para los encabezados */
+  color: white;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #8ddfff;
+}
+
+td {
+  color: #555;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+input:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+button[type="submit"],
+button[type="button"] {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 48%;
+  margin: 5px 0;
+}
+
+button[type="submit"]:hover,
+button[type="button"]:hover {
+  background-color: #218838;
+}
+
+button[type="submit"]:focus,
+button[type="button"]:focus {
+  outline: none;
+}
+
+/* Estilo para centrar la lista de clientes */
+table {
+  width: 90%;
+  margin: 30px auto;
+}
+
+th, td {
+  text-align: center;
+  font-weight: bold;
+}
+
+th {
+  font-size: 18px;
+}
+
+td {
+  font-size: 16px;
+}
