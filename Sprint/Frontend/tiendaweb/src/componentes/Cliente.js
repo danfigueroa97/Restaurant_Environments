@@ -62,7 +62,7 @@ const ClienteTable = () => {
     }
 
     // Enviar el nuevo cliente al backend
-    axios.post('http://localhost:8090/api/clientes/agregar', {
+    axios.post('http://localhost:8090/api/clientes/', {
       id: 0,
       idTipoDocumento: newCliente.idTipoDocumento, 
       numeroDocumento: newCliente.numeroDocumento,
