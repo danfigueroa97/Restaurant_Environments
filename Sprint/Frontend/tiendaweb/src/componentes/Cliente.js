@@ -92,6 +92,63 @@ const ClienteTable = () => {
         alert('Hubo un error al agregar el cliente. Intenta nuevamente.');
       });
   };
+// Función para eliminar un cliente por su ID
+const handleDelete = (id) => {
+  if (window.confirm("¿Estás seguro de que deseas eliminar este cliente?")) {
+    axios.delete(`http://localhost:8090/api/clientes/${id}`)
+      .then(() => {
+        setClientes(clientes.filter(cliente => cliente.id !== id));
+        alert('Cliente eliminado con éxito.');
+      })
+      .catch(error => {
+        console.error('Error al eliminar el cliente:', error);
+        alert('Hubo un error al eliminar el cliente.');
+      });
+  }
+};
+// Función para llenar el formulario con los datos del cliente a editar
+const handleEdit = (cliente) => {
+  setNewCliente({
+    ...cliente,
+    idTipoDocumento: { id_tipodocumento: cliente.idTipoDocumento.id_tipodocumento || 0 }
+  });
+  setShowModal(true);
+};
+
+// Función para actualizar el cliente
+const handleUpdate = (e) => {
+  e.preventDefault();
+
+  // Validar los datos del cliente
+  if (!newCliente.idTipoDocumento.id_tipodocumento || !newCliente.numeroDocumento || !newCliente.nombre || !newCliente.direccion || !newCliente.telefono || !newCliente.email) {
+    alert('Por favor, complete todos los campos.');
+    return;
+  }
+console.log(newCliente)
+  axios.put(`http://localhost:8090/api/clientes/${newCliente.id}`, newCliente, {
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  })
+    .then(response => {
+      setClientes(clientes.map(cliente => cliente.id === response.data.id ? response.data : cliente));
+      setShowModal(false);
+      setNewCliente({
+        idTipoDocumento: { id_tipodocumento: 0 },
+        numeroDocumento: '',
+        nombre: '',
+        direccion: '',
+        telefono: '',
+        email: ''
+      });
+    })
+    .catch(error => {
+      console.error('Error al actualizar el cliente:', error);
+      alert('Hubo un error al actualizar el cliente. Intenta nuevamente.');
+    });
+};
+
+
 
   return (
     <div>
@@ -111,6 +168,7 @@ const ClienteTable = () => {
             <th>Dirección</th>
             <th>Teléfono</th>
             <th>Email</th>
+            <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -123,6 +181,10 @@ const ClienteTable = () => {
               <td>{cliente.direccion}</td>
               <td>{cliente.telefono}</td>
               <td>{cliente.email}</td>
+              <td>
+              <button onClick={() => handleDelete(cliente.id)}>Eliminar</button>
+              <button onClick={() => handleEdit(cliente)}>Editar</button>
+            </td>
             </tr>
           ))}
         </tbody>
@@ -132,8 +194,8 @@ const ClienteTable = () => {
       {showModal && (
         <div className="modal">
           <div className="modal-content">
-            <h3>Agregar Nuevo Cliente</h3>
-            <form onSubmit={handleSubmit}>
+          <h3>{newCliente.id ? "Editar Cliente" : "Agregar Nuevo Cliente"}</h3>
+            <form onSubmit={newCliente.id ? handleUpdate : handleSubmit}>
               <label>Tipo de Documento:</label>
               <input
                 type="number"
@@ -182,7 +244,9 @@ const ClienteTable = () => {
                 onChange={handleChange}
                 required
               />
-              <button type="submit">Guardar Cliente</button>
+              <button type="submit">
+              {newCliente.id ? "Actualizar Cliente" : "Guardar Cliente"}
+              </button>
               <button type="button" onClick={() => setShowModal(false)}>Cancelar</button>
             </form>
           </div>
