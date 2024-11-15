@@ -119,13 +119,13 @@ const handleEdit = (cliente) => {
 const handleUpdate = (e) => {
   e.preventDefault();
 
-  // Validar los datos del cliente
+// Validar los datos del cliente
   if (!newCliente.idTipoDocumento.id_tipodocumento || !newCliente.numeroDocumento || !newCliente.nombre || !newCliente.direccion || !newCliente.telefono || !newCliente.email) {
     alert('Por favor, complete todos los campos.');
     return;
   }
 console.log(newCliente)
-  axios.put(`http://localhost:8090/api/clientes/${newCliente.id}`, newCliente, {
+  axios.put(`http://localhost:8090/api/clientes/`, newCliente, {
     headers: {
       'Content-Type': 'application/json',
     }
@@ -141,6 +141,10 @@ console.log(newCliente)
         telefono: '',
         email: ''
       });
+
+      // Recargar la página después de actualizar
+      window.location.reload();
+
     })
     .catch(error => {
       console.error('Error al actualizar el cliente:', error);
