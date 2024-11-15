@@ -119,26 +119,65 @@ input:focus {
   outline: none;
 }
 
-button[type="submit"],
-button[type="button"] {
-  background-color: #28a745;
+
+button.button1 {
+  background-color: #28a745; 
   color: white;
   padding: 10px 20px;
   border: none;
   font-size: 16px;
   cursor: pointer;
   border-radius: 5px;
-  width: 48%;
   margin: 5px 0;
+  display: inline-table;
 }
 
-button[type="submit"]:hover,
-button[type="button"]:hover {
+button.button1:hover {
   background-color: #218838;
 }
 
-button[type="submit"]:focus,
-button[type="button"]:focus {
+button.button1:focus {
+  outline: none;
+}
+
+button.button2 {
+  background-color: #d7c525;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 5px 0;
+  display: inline-block;
+}
+
+button.button2:hover {
+  background-color: #9b8a29;
+}
+
+button.button2:focus {
+  outline: none;
+}
+
+
+button.button3 {
+  background-color: #e11d1d; 
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 5px 0;
+  display: inline-block;
+}
+
+button.button3:hover {
+  background-color: #972716;
+}
+
+button.button3:focus {
   outline: none;
 }
 
@@ -146,9 +185,11 @@ button[type="button"]:focus {
 table {
   width: 90%;
   margin: 30px auto;
+  border-collapse: collapse;
 }
 
 th, td {
+  padding:10px;
   text-align: center;
   font-weight: bold;
 }

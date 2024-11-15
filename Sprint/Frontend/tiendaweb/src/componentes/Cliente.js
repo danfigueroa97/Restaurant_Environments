@@ -119,13 +119,13 @@ const handleEdit = (cliente) => {
 const handleUpdate = (e) => {
   e.preventDefault();
 
-// Validar los datos del cliente
+  // Validar los datos del cliente
   if (!newCliente.idTipoDocumento.id_tipodocumento || !newCliente.numeroDocumento || !newCliente.nombre || !newCliente.direccion || !newCliente.telefono || !newCliente.email) {
     alert('Por favor, complete todos los campos.');
     return;
   }
 console.log(newCliente)
-  axios.put(`http://localhost:8090/api/clientes/`, newCliente, {
+  axios.put(`http://localhost:8090/api/clientes/${newCliente.id}`, newCliente, {
     headers: {
       'Content-Type': 'application/json',
     }
@@ -141,10 +141,6 @@ console.log(newCliente)
         telefono: '',
         email: ''
       });
-
-      // Recargar la página después de actualizar
-      window.location.reload();
-
     })
     .catch(error => {
       console.error('Error al actualizar el cliente:', error);
@@ -158,8 +154,8 @@ console.log(newCliente)
     <div>
       <h2>Lista de Clientes</h2>
       
-      {/* Botón para mostrar el formulario de agregar cliente */}
-      <button onClick={() => setShowModal(true)}>Agregar Cliente</button>
+      
+      <button className="button1" onClick={() => setShowModal(true)}>Agregar Cliente</button>
 
       {/* Tabla de clientes */}
       <table border="1">
@@ -186,8 +182,8 @@ console.log(newCliente)
               <td>{cliente.telefono}</td>
               <td>{cliente.email}</td>
               <td>
-              <button onClick={() => handleDelete(cliente.id)}>Eliminar</button>
-              <button onClick={() => handleEdit(cliente)}>Editar</button>
+              <button type="button" className="button3" onClick={() => handleDelete(cliente.id)}>Eliminar</button>
+              <button type="button" className="button2" onClick={() => handleEdit(cliente)}>Editar</button>
             </td>
             </tr>
           ))}
