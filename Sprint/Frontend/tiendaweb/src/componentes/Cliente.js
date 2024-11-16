@@ -110,7 +110,7 @@ const handleDelete = (id) => {
 const handleEdit = (cliente) => {
   setNewCliente({
     ...cliente,
-    idTipoDocumento: { id_tipodocumento: cliente.idTipoDocumento.id_tipodocumento || 0 }
+    idTipoDocumento: { id_tipodocumento: cliente.idTipoDocumento.id_tipodocumento || cliente.idTipoDocumento }
   });
   setShowModal(true);
 };
@@ -125,10 +125,10 @@ const handleUpdate = (e) => {
     return;
   }
 console.log(newCliente)
-  axios.put(`http://localhost:8090/api/clientes/${newCliente.id}`, newCliente, {
+  axios.put(`http://localhost:8090/api/clientes/`, newCliente, {
     headers: {
-      'Content-Type': 'application/json',
-    }
+      'Content-Type': 'application/json'
+    },
   })
     .then(response => {
       setClientes(clientes.map(cliente => cliente.id === response.data.id ? response.data : cliente));
@@ -141,6 +141,7 @@ console.log(newCliente)
         telefono: '',
         email: ''
       });
+      window.location.reload();
     })
     .catch(error => {
       console.error('Error al actualizar el cliente:', error);
